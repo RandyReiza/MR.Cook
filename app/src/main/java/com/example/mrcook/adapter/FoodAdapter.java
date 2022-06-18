@@ -87,6 +87,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             }
             binding.times.setText(times);
 
+            binding.description.setText(food.getDesc());
+
             binding.getRoot().setOnClickListener(v ->
                 onItemClickCallback.onItemClicked(food)
             );

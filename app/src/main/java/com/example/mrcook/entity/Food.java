@@ -11,14 +11,16 @@ public class Food implements Parcelable {
     String portion;
     String dificulty;
     String key;
+    String desc;
 
-    public Food(String title, String thumb, String times, String portion, String dificulty, String key) {
+    public Food(String title, String thumb, String times, String portion, String dificulty, String key, String desc) {
         this.title = title;
         this.thumb = thumb;
         this.times = times;
         this.portion = portion;
         this.dificulty = dificulty;
         this.key = key;
+        this.desc = desc;
     }
 
     public String getTitle() {
@@ -69,6 +71,14 @@ public class Food implements Parcelable {
         this.key = key;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
     protected Food(Parcel in) {
         title = in.readString();
         thumb = in.readString();
@@ -76,6 +86,7 @@ public class Food implements Parcelable {
         portion = in.readString();
         dificulty = in.readString();
         key = in.readString();
+        desc = in.readString();
     }
 
     public static final Creator<Food> CREATOR = new Creator<Food>() {
@@ -103,5 +114,6 @@ public class Food implements Parcelable {
         parcel.writeString(portion);
         parcel.writeString(dificulty);
         parcel.writeString(key);
+        parcel.writeString(desc);
     }
 }
