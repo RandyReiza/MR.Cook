@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.mrcook.adapter.FoodAdapter;
 import com.example.mrcook.databinding.FragmentHomeBinding;
 import com.example.mrcook.entity.Food;
+import com.example.mrcook.helper.Helper;
 import com.example.mrcook.helper.ViewModelFactory;
 
 public class HomeFragment extends Fragment {
@@ -41,20 +42,25 @@ public class HomeFragment extends Fragment {
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.recyclerView.setAdapter(adapter);
 
-        viewModel = obtainViewModel(getActivity());
+        viewModel = obtainViewModel(requireActivity());
 
-        // fetchAllFoodData
-        viewModel.fetchAllFoodData();
-
-        viewModel.listFoodLiveData.observe(getViewLifecycleOwner(), food -> {
-            adapter.setData(food);
-        });
+        observeAndShowCookRecipe();
 
         adapter.setOnItemClickCallback(new FoodAdapter.OnItemClickCallback() {
             @Override
             public void onItemClicked(Food food) {
                 navigateToDetail(requireView(), food);
             }
+        });
+    }
+
+    private void observeAndShowCookRecipe() {
+        Helper.showView(binding.progressBar, true);
+        viewModel.fetchAllFoodData();
+
+        viewModel.listFoodLiveData.observe(getViewLifecycleOwner(), food -> {
+            adapter.setData(food);
+            Helper.showView(binding.progressBar, false);
         });
     }
 
@@ -73,7 +79,5 @@ public class HomeFragment extends Fragment {
     private void navigateToDetail(View view, Food food) {
         HomeFragmentDirections.ActionHomeFragmentToDetailFragment action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(food);
         Navigation.findNavController(view).navigate(action);
-//        NavDirections action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(food);
-//        Navigation.findNavController(view).navigate(action);
     }
 }
