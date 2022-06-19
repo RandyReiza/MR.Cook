@@ -15,10 +15,10 @@ public interface ApiService {
     @GET("/api/recipes")
     Call<ResponseFoodRecipe> getAllFood();
 
-    @GET("/api/search")
-    Call<ResponseFoodSearch> searchFood(@Query("q") String food);
-
     @GET("/api/recipe/{key}")
     Call<ResponseFoodDetail> getFoodDetail(@Path("key") String key);
+
+    @GET("/api/search")
+    Call<ResponseFoodSearch> searchFood(@Query("q") String food);
 
 }
