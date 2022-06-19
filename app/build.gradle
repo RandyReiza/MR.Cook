@@ -14,6 +14,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", '"https://talentpool.oneindonesia.id"')
+        buildConfigField("String", "API_AUTH", '"454041184B0240FBA3AACD15A1F7ABBB"')
+        buildConfigField("String", "FOOD_RECIPE_BASE_URL", '"https://masak-apa-tomorisakura.vercel.app"')
     }
 
     buildTypes {
@@ -43,6 +47,12 @@ dependencies {
     implementation 'jp.wasabeef:glide-transformations:4.3.0'
     implementation 'androidx.preference:preference:1.2.0'
 
+    def lifecycle_version = "2.4.1"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"

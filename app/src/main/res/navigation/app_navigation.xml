@@ -18,5 +18,9 @@
         android:id="@+id/detailFragment"
         android:name="com.example.mrcook.ui.detail.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="food"
+            app:argType="com.example.mrcook.entity.Food" />
+    </fragment>
 </navigation>
