@@ -92,7 +92,6 @@
             android:layout_marginStart="35dp"
             android:layout_marginEnd="35dp"
             android:layout_marginBottom="5dp"
-            android:drawableRight="@drawable/ic_baseline_eye"
             android:padding="15dp"
             android:background="#D9D9D9"/>
 
@@ -122,16 +121,16 @@
                 android:layout_below="@+id/forgot_password"
                 android:layout_marginStart="50dp"
                 android:gravity="center"
-                android:text="Sign Up" />
+                android:text="Sign Up"/>
 
             <Button
                 android:id="@+id/btn_signIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/forgot_password"
+                android:layout_marginLeft="40dp"
                 android:gravity="center"
-                android:text="Sign In"
-                android:layout_marginLeft="40dp"/>
+                android:text="Sign In"/>
 
         </LinearLayout>
 
