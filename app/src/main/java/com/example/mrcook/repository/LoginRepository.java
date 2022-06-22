@@ -18,7 +18,7 @@ public class LoginRepository {
         this.application = application;
     }
 
-    public Call<ResponseUser> userLogin(){
-        return new ApiConfig(BASE_URL).getApiService().userLogin();
+    public Call<ResponseUser> userLogin(String username, String password){
+        return new ApiConfig(BASE_URL).getApiService().userLogin(username, password);
     }
 }

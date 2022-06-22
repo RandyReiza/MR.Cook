@@ -58,9 +58,9 @@ public class LoginFragment extends Fragment {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                username = inputUsername.getText().toString();
-//                password = inputPassword.getText().toString();
-                viewModel.userLogin();
+                username = inputUsername.getText().toString();
+                password = inputPassword.getText().toString();
+                viewModel.userLogin(username, password);
                 if(viewModel.status == true) {
                 Toast.makeText(getContext(), "Login Success", Toast.LENGTH_LONG).show();
                 }

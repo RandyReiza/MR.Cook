@@ -30,8 +30,11 @@ public interface ApiService {
     Call<ResponseFoodSearch> searchFood(@Query("q") String food);
 
     @Headers("x-api-key:"+ BuildConfig.API_AUTH)
-//    @FormUrlEncoded
+    @FormUrlEncoded
     @POST("/api/user/login")
-    Call<ResponseUser> userLogin();
+    Call<ResponseUser> userLogin(
+            @Field("username") String username,
+            @Field("password") String password
+    );
 
 }

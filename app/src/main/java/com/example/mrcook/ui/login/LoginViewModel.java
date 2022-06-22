@@ -25,8 +25,8 @@ public class LoginViewModel extends ViewModel {
 
     private static final String TAG = LoginViewModel.class.getSimpleName();
 
-    public void userLogin(){
-        Call<ResponseUser> client = loginRepository.userLogin();
+    public void userLogin(String username, String password){
+        Call<ResponseUser> client = loginRepository.userLogin(username, password);
         client.enqueue(new Callback<ResponseUser>() {
             @Override
             public void onResponse(Call<ResponseUser> call, Response<ResponseUser> response) {
