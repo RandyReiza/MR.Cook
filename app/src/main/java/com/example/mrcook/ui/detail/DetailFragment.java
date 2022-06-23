@@ -128,10 +128,10 @@ public class DetailFragment extends Fragment {
     private void setFavoriteState(Boolean state, String title) {
         if (state) {
             binding.buttonFavorite.setImageResource(R.drawable.ic_baseline_favorite_24);
-            Helper.showToast(requireContext(), getResources().getString(R.string.add_to_favorite, title));
+            Helper.showToast(requireContext(), getResources().getString(R.string.add_to_favorite, title.replace("Resep ", "")));
         } else {
             binding.buttonFavorite.setImageResource(R.drawable.ic_baseline_favorite_border_24);
-            Helper.showToast(requireContext(), getResources().getString(R.string.remove_from_favorite, title));
+            Helper.showToast(requireContext(), getResources().getString(R.string.remove_from_favorite, title.replace("Resep ", "")));
         }
     }
 
