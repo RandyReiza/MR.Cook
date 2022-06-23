@@ -3,6 +3,8 @@ package com.example.mrcook.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.List;
+
 public class Food implements Parcelable {
 
     String title;
@@ -12,8 +14,10 @@ public class Food implements Parcelable {
     String dificulty;
     String key;
     String desc;
+    List<String> ingredient;
+    List<String> step;
 
-    public Food(String title, String thumb, String times, String portion, String dificulty, String key, String desc) {
+    public Food(String title, String thumb, String times, String portion, String dificulty, String key, String desc, List<String> ingredient, List<String> step) {
         this.title = title;
         this.thumb = thumb;
         this.times = times;
@@ -21,6 +25,8 @@ public class Food implements Parcelable {
         this.dificulty = dificulty;
         this.key = key;
         this.desc = desc;
+        this.ingredient = ingredient;
+        this.step = step;
     }
 
     public String getTitle() {
@@ -79,6 +85,22 @@ public class Food implements Parcelable {
         this.desc = desc;
     }
 
+    public List<String> getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(List<String> ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    public List<String> getStep() {
+        return step;
+    }
+
+    public void setStep(List<String> step) {
+        this.step = step;
+    }
+
     protected Food(Parcel in) {
         title = in.readString();
         thumb = in.readString();
@@ -87,6 +109,8 @@ public class Food implements Parcelable {
         dificulty = in.readString();
         key = in.readString();
         desc = in.readString();
+        ingredient = in.createStringArrayList();
+        step = in.createStringArrayList();
     }
 
     public static final Creator<Food> CREATOR = new Creator<Food>() {
@@ -115,5 +139,7 @@ public class Food implements Parcelable {
         parcel.writeString(dificulty);
         parcel.writeString(key);
         parcel.writeString(desc);
+        parcel.writeStringList(ingredient);
+        parcel.writeStringList(step);
     }
 }
