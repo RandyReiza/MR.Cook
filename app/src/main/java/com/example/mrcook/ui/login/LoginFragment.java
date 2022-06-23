@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -61,19 +62,24 @@ public class LoginFragment extends Fragment {
                 username = inputUsername.getText().toString();
                 password = inputPassword.getText().toString();
                 viewModel.userLogin(username, password);
-                if(viewModel.status == true) {
-                Toast.makeText(getContext(), "Login Success", Toast.LENGTH_LONG).show();
+                if(!viewModel.status == true) {
+                    System.out.println(viewModel.status);
+                    Toast.makeText(getContext(), "Login Failed", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    System.out.println(viewModel.status);
+                    Toast.makeText(getContext(), "Login Success", Toast.LENGTH_LONG).show();
                 }
             }
         }
         );
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //for sign up process
-            }
-        });
+//        btnSignUp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //for sign up process
+//            }
+//        });
 
     }
 
