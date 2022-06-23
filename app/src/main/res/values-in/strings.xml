@@ -10,4 +10,6 @@
     <string name="back">Back</string>
     <string name="ingredients">Ingredients:</string>
     <string name="steps">Steps:</string>
+    <string name="add_to_favorite">%s ditambahkan ke favorit</string>
+    <string name="remove_from_favorite">%s dihapus dari favorit</string>
 </resources>

@@ -188,7 +188,7 @@
                         android:id="@+id/description"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="20dp"
                         android:maxLines="4"
                         android:text="@string/lorem_ipsum"
                         android:textColor="#FF676769" />
