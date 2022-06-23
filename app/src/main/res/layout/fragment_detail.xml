@@ -4,12 +4,273 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#535353"
     tools:context=".ui.detail.DetailFragment">
 
-    <TextView
-        android:id="@+id/tv"
+    <ImageView
+        android:id="@+id/imgCover"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        android:foreground="#66000000"
+        tools:src="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@string/back"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@string/favorite"
+        android:minWidth="32dp"
+        android:minHeight="32dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardLayout"
+        style="@style/BottomRadiusCardView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="160dp"
+        android:backgroundTint="#FFFFFF"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@android:style/Widget.Holo.Light.ProgressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/layout1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:orientation="vertical"
+                    android:layout_marginTop="112dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:textColor="#FF2A2A2A"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="TITLE" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/layoutDificulty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/logoDificulty"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?android:selectableItemBackground"
+                                android:contentDescription="@string/level"
+                                android:src="@drawable/ic_signal" />
+
+                            <TextView
+                                android:id="@+id/dificulty"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="6dp"
+                                android:textColor="#FF382C"
+                                tools:text="EASY" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutPortion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="16dp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/logoPortion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?android:selectableItemBackground"
+                                android:contentDescription="@string/level"
+                                android:src="@drawable/ic_plate" />
+
+                            <TextView
+                                android:id="@+id/portion"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="6dp"
+                                android:textColor="#FF382C"
+                                tools:text="2" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutTimes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="16dp"
+                            android:layout_marginStart="16dp"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/logoTimes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?android:selectableItemBackground"
+                                android:contentDescription="@string/level"
+                                android:src="@drawable/ic_time" />
+
+                            <TextView
+                                android:id="@+id/times"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="6dp"
+                                android:textColor="#FF382C"
+                                tools:text="35mnt" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="4"
+                        android:text="@string/lorem_ipsum"
+                        android:textColor="#FF676769" />
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/ingredientsText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF2A2A2A"
+                        android:textSize="14sp"
+                        android:text="@string/ingredients"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/ingredient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="4"
+                        android:text="@string/lorem_ipsum"
+                        android:textColor="#FF676769" />
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="?attr/colorPrimary" />
+
+                    <TextView
+                        android:id="@+id/stepText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FF2A2A2A"
+                        android:textSize="14sp"
+                        android:text="@string/steps"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/step"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:maxLines="4"
+                        android:text="@string/lorem_ipsum"
+                        android:textColor="#FF676769" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imgViewCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/cardLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardLayout">
+
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_width="340dp"
+            android:layout_height="170dp"
+            android:contentDescription="@string/food_thumb"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/food" />
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

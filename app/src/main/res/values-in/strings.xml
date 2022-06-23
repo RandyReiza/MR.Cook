@@ -6,4 +6,8 @@
     <string name="level">Level</string>
     <string name="food_thumb">Food Thumb</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quisquam obcaecati officiis maiores magni eius, quas itaque fuga dicta, qui ipsa fugit tempore dolore corporis praesentium a? Facere, corporis dicta!</string>
+    <string name="favorite">Favorite</string>
+    <string name="back">Back</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="steps">Steps:</string>
 </resources>
