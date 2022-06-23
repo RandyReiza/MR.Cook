@@ -6,15 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.mrcook.ui.detail.DetailViewModel;
 import com.example.mrcook.ui.home.HomeViewModel;
 
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
     private static volatile ViewModelFactory INSTANCE;
-    private final Application aplication;
+    private final Application application;
 
     private ViewModelFactory(Application application) {
-        aplication = application;
+        this.application = application;
     }
 
     public static ViewModelFactory getInstance(Application application) {
@@ -29,7 +30,9 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(HomeViewModel.class)) {
-            return (T) new HomeViewModel(aplication);
+            return (T) new HomeViewModel(application);
+        }  else if (modelClass.isAssignableFrom(DetailViewModel.class)) {
+            return (T) new DetailViewModel(application);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

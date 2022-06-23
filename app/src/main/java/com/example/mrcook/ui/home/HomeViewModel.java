@@ -56,7 +56,7 @@ public class HomeViewModel extends ViewModel {
                     ResponseFoodRecipe responseBody = response.body();
                     if (response.isSuccessful() && responseBody != null) {
                         for (ResultsItem item : responseBody.getResults()) {
-                            Food food = new Food(item.getTitle(), item.getThumb(), item.getTimes(), item.getPortion(), item.getDificulty(), item.getKey(), null);
+                            Food food = new Food(item.getTitle(), item.getThumb(), item.getTimes(), item.getPortion(), item.getDificulty(), item.getKey(), null, null, null);
                             listFood.add(food);
                         }
 
@@ -85,6 +85,8 @@ public class HomeViewModel extends ViewModel {
                         ResponseFoodDetail responseBody = response.body();
                         if (response.isSuccessful() && responseBody != null) {
                             food.setDesc(responseBody.getResults().getDesc());
+                            food.setIngredient(responseBody.getResults().getIngredient());
+                            food.setStep(responseBody.getResults().getStep());
                         }
 
                         // post value to MutableLiveData
@@ -116,7 +118,7 @@ public class HomeViewModel extends ViewModel {
                     ResponseFoodSearch responseBody = response.body();
                     if (response.isSuccessful() && responseBody != null) {
                         for (com.example.mrcook.restapi.foodrecipe.responses.search.ResultsItem item : responseBody.getResults()) {
-                            Food food = new Food(item.getTitle(), item.getThumb(), item.getTimes(), item.getServing(), item.getDifficulty(), item.getKey(), null);
+                            Food food = new Food(item.getTitle(), item.getThumb(), item.getTimes(), item.getServing(), item.getDifficulty(), item.getKey(), null, null, null);
                             listFood.add(food);
                         }
 
@@ -126,8 +128,6 @@ public class HomeViewModel extends ViewModel {
                             _listFoodLiveData.postValue(listFood);
                             showInfo(true);
                         }
-
-                        // fetch detail
                     }
                 } catch (Exception e) {
                     Log.e(TAG, e.getMessage());
