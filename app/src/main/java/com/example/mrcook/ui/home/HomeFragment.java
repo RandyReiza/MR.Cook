@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -43,6 +44,13 @@ public class HomeFragment extends Fragment {
             public void onRefresh() {
                 viewModel.query = binding.querySearch.getQuery().toString();
                 refreshCurrentState();
+            }
+        });
+
+        binding.buttonFavoriteUsers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToFavorite(view);
             }
         });
 
@@ -133,6 +141,10 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 
+    private void navigateToFavorite(View view) {
+        NavDirections action = HomeFragmentDirections.actionHomeFragmentToFavoriteFragment();
+        Navigation.findNavController(view).navigate(action);
+    }
 
     private void navigateToDetail(View view, Food food) {
         HomeFragmentDirections.ActionHomeFragmentToDetailFragment action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(food);
