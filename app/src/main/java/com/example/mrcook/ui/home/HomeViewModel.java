@@ -128,8 +128,6 @@ public class HomeViewModel extends ViewModel {
                             _listFoodLiveData.postValue(listFood);
                             showInfo(true);
                         }
-
-                        // fetch detail
                     }
                 } catch (Exception e) {
                     Log.e(TAG, e.getMessage());

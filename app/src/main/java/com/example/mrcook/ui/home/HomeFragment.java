@@ -95,11 +95,11 @@ public class HomeFragment extends Fragment {
         } else {
             viewModel.searchFood(query);
         }
-        observeAll();
+        observeAllValues();
         binding.swipeRefreshLayout.setRefreshing(false);
     }
 
-    private void observeAll() {
+    private void observeAllValues() {
         viewModel.listFoodLiveData.observe(getViewLifecycleOwner(), it -> {
             adapter.setData(it);
         });
