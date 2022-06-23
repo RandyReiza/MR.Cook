@@ -12,4 +12,5 @@
     <string name="steps">Steps:</string>
     <string name="add_to_favorite">%s ditambahkan ke favorit</string>
     <string name="remove_from_favorite">%s dihapus dari favorit</string>
+    <string name="favorite_food">Makanan Favorite</string>
 </resources>

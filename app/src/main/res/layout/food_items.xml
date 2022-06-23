@@ -58,13 +58,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="16dp"
                 android:gravity="bottom"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/logoDificulty"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?android:selectableItemBackground"
                     android:contentDescription="@string/level"
                     android:src="@drawable/ic_signal" />
 
@@ -83,13 +83,13 @@
                 android:layout_height="16dp"
                 android:layout_marginStart="16dp"
                 android:gravity="bottom"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/logoPortion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?android:selectableItemBackground"
                     android:contentDescription="@string/level"
                     android:src="@drawable/ic_plate" />
 
@@ -108,13 +108,13 @@
                 android:layout_height="16dp"
                 android:layout_marginStart="16dp"
                 android:gravity="bottom"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/logoTimes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?android:selectableItemBackground"
                     android:contentDescription="@string/level"
                     android:src="@drawable/ic_time" />
 
