@@ -54,6 +54,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        binding.buttonProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToFavorite(view);
+            }
+        });
+
         adapter = new FoodAdapter();
         adapter.notifyDataSetChanged();
 
