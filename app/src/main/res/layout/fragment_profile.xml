@@ -134,7 +134,6 @@
                 android:background="@color/grey"
                 android:layout_marginTop="30dp"/>
         </LinearLayout>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
