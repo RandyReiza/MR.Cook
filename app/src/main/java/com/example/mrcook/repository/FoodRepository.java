@@ -46,8 +46,12 @@ public class FoodRepository {
         executorService.execute(() -> foodDao.update(foodData));
     }
 
-    public LiveData<List<FoodData>> getAllFoods() {
+    public List<FoodData> getAllFoods() {
         return foodDao.getAllFoods();
+    }
+
+    public List<FoodData> getAllFoodsByTitleLike(String title) {
+        return foodDao.getAllFoodsByTitleLike(title);
     }
 
     public LiveData<FoodData> getOneByKey(String key) {

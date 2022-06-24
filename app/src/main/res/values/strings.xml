@@ -13,4 +13,6 @@
     <string name="add_to_favorite">%s added to favorite</string>
     <string name="remove_from_favorite">%s removed from favorite</string>
     <string name="favorite_food">Favorite Food</string>
+    <string name="favorite_recipe">Favorite Recipe</string>
+    <string name="search_favorite_recipe">Search Favorite Recipe</string>
 </resources>
