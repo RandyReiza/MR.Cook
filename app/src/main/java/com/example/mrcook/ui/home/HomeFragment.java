@@ -69,7 +69,11 @@ public class HomeFragment extends Fragment {
 
         viewModel = obtainViewModel(requireActivity());
 
-        refreshCurrentState();
+        if (viewModel.listFood.size() != 0) {
+            adapter.setData(viewModel.listFood);
+        } else {
+            refreshCurrentState();
+        }
 
         binding.querySearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

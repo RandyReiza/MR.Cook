@@ -41,7 +41,7 @@ public class HomeViewModel extends ViewModel {
 
     public String query = "";
 
-    private ArrayList<Food> listFood = new ArrayList<>();
+    public ArrayList<Food> listFood = new ArrayList<>();
 
     public void fetchAllFoodData() {
         listFood.clear();
