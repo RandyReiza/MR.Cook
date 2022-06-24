@@ -24,7 +24,10 @@ public interface FoodDao {
     void delete(FoodData foodData);
 
     @Query("SELECT * FROM food ORDER BY id ASC")
-    LiveData<List<FoodData>> getAllFoods();
+    List<FoodData> getAllFoods();
+
+    @Query("SELECT * FROM food WHERE title LIKE '%' || :title || '%' ORDER BY id DESC")
+    List<FoodData> getAllFoodsByTitleLike(String title);
 
     @Query("SELECT * FROM food WHERE `key` = :key")
     LiveData<FoodData> getOneByKey(String key);
