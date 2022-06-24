@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         binding.buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToFavorite(view);
+                navigateToProfile(view);
             }
         });
 
@@ -159,6 +159,11 @@ public class HomeFragment extends Fragment {
 
     private void navigateToDetail(View view, Food food) {
         HomeFragmentDirections.ActionHomeFragmentToDetailFragment action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(food);
+        Navigation.findNavController(view).navigate(action);
+    }
+
+    private void navigateToProfile(View view){
+        NavDirections action = HomeFragmentDirections.actionHomeFragmentToProfileFragment();
         Navigation.findNavController(view).navigate(action);
     }
 }
