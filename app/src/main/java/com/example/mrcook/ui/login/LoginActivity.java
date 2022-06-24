@@ -24,13 +24,19 @@ public class LoginActivity extends AppCompatActivity {
     String password;
     SessionManagerUtil sessionManagerUtil;
 
+    private final long ONE_MONTH_IN_MILLIS = 2629800000L;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         sessionManagerUtil = new SessionManagerUtil(getApplicationContext());
-        //Check Session Login is True
-        if (sessionManagerUtil.getLogin() && (!sessionManagerUtil.getToken().isEmpty() || sessionManagerUtil.getToken() != null)){
+
+        checkSession();
+
+        if (sessionManagerUtil.getLogin() &&
+                (!sessionManagerUtil.getToken().isEmpty() || sessionManagerUtil.getToken() != null)){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
@@ -47,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 sessionManagerUtil.setUsername(it.getUsername());
                 sessionManagerUtil.setFullName(it.getFullName());
                 sessionManagerUtil.setEmail(it.getEmail());
+                sessionManagerUtil.setSessionExpiredTime(System.currentTimeMillis() + ONE_MONTH_IN_MILLIS);
 
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
@@ -75,4 +82,10 @@ public class LoginActivity extends AppCompatActivity {
         return new ViewModelProvider(activity, (ViewModelProvider.Factory) factory).get(LoginViewModel.class);
     }
 
+
+    private void checkSession() {
+        if (Helper.isSessionExpired(getApplicationContext())) {
+            Helper.showToast(getApplicationContext(), "Session Time out, Please Re-Login");
+        }
+    }
 }
