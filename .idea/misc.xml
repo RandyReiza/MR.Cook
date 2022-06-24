@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Folder Nopal/BCA IT Intern/Training Basic Android/Project/CookingRecipe/MR.Cook/app/src/main/res/drawable/shape_login_panel.xml" value="0.2195" />
+        <entry key="..\:/Folder Nopal/BCA IT Intern/Training Basic Android/Project/CookingRecipe/MR.Cook/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Folder Nopal/BCA IT Intern/Training Basic Android/Project/CookingRecipe/MR.Cook/app/src/main/res/layout/activity_login2.xml" value="0.1" />
+        <entry key="..\:/Folder Nopal/BCA IT Intern/Training Basic Android/Project/CookingRecipe/MR.Cook/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Folder Nopal/BCA IT Intern/Training Basic Android/Project/CookingRecipe/MR.Cook/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/u071919/AndroidStudioProjects/MRCook/app/src/main/res/layout/activity_main.xml" value="0.15915119363395225" />
         <entry key="..\:/Users/u071919/AndroidStudioProjects/MRCook/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/Users/u071919/AndroidStudioProjects/MRCook/app/src/main/res/layout/fragment_detail.xml" value="0.1" />

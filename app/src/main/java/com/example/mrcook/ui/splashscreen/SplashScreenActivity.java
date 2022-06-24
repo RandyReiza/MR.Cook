@@ -9,6 +9,7 @@ import android.os.Looper;
 
 import com.example.mrcook.R;
 import com.example.mrcook.ui.MainActivity;
+import com.example.mrcook.ui.login.LoginActivity;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+                startActivity(new Intent(SplashScreenActivity.this, LoginActivity.class));
                 finish();
             }
         }, 3000);

@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.mrcook.ui.detail.DetailViewModel;
 import com.example.mrcook.ui.favorite.FavoriteViewModel;
 import com.example.mrcook.ui.home.HomeViewModel;
+import com.example.mrcook.ui.login.LoginViewModel;
 
 public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
 
@@ -36,6 +37,8 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new DetailViewModel(application);
         } else if (modelClass.isAssignableFrom(FavoriteViewModel.class)) {
             return (T) new FavoriteViewModel(application);
+        }  else if (modelClass.isAssignableFrom(LoginViewModel.class)) {
+            return (T) new LoginViewModel(application);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }
