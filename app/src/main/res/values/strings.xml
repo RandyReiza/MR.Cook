@@ -16,4 +16,7 @@
     <string name="favorite_recipe">Favorite Recipe</string>
     <string name="search_favorite_recipe">Search Favorite Recipe</string>
     <string name="profile">Profile</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="fullname">Fullname</string>
+    <string name="username">Username</string>
 </resources>
