@@ -5,13 +5,11 @@ import android.content.SharedPreferences;
 
 public class SessionManagerUtil {
     public static final String SESSION_PREFERENCE = "com.example.mrcook.session.SessionManagerUtils.SESSION_PREFERENCE";
-//    public static final String SESSION_TOKEN = "com.example.mrcook.session.SessionManagerUtils.SESSION_TOKEN";
     private SharedPreferences mSharedPreferences;
     private SharedPreferences.Editor mEditor;
 
     //set constructor
     public SessionManagerUtil(Context context){
-//        mSharedPreferences = context.getSharedPreferences("AppKey", 0);
         mSharedPreferences = context.getSharedPreferences(SESSION_PREFERENCE,Context.MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
         mEditor.apply();
@@ -22,17 +20,8 @@ public class SessionManagerUtil {
         mEditor.commit();
     }
 
-    public boolean getlogin(){
+    public boolean getLogin(){
         return mSharedPreferences.getBoolean("KEY_LOGIN", false);
-    }
-
-    public void setUsername(String username){
-        mEditor.putString("KEY_USERNAME", username);
-        mEditor.commit();
-    }
-
-    public String getUsername(){
-        return mSharedPreferences.getString("KEY_USERNAME", "");
     }
 
     public void setToken(String token){
@@ -44,18 +33,30 @@ public class SessionManagerUtil {
         return mSharedPreferences.getString("KEY_TOKEN","" );
     }
 
-//    public void storeUserToken(Context context, String token){
-//    mSharedPreferences = context.getSharedPreferences(SESSION_PREFERENCE, Context.MODE_PRIVATE);
-//    mEditor = mSharedPreferences.edit();
-//    mEditor.putString(SESSION_TOKEN, token);
-//    mEditor.apply();
-//    }
-
-
-    public void logout(){
-        mEditor = mSharedPreferences.edit();
-        mEditor.clear().commit();
+    public void setUsername(String username){
+        mEditor.putString("KEY_USERNAME", username);
+        mEditor.commit();
     }
 
+    public String getUsername(){
+        return mSharedPreferences.getString("KEY_USERNAME", "");
+    }
 
+    public void setFullName(String fullName){
+        mEditor.putString("KEY_FULL_NAME", fullName);
+        mEditor.commit();
+    }
+
+    public String getFullName(){
+        return mSharedPreferences.getString("KEY_FULL_NAME","" );
+    }
+
+    public void setEmail(String email){
+        mEditor.putString("KEY_EMAIL", email);
+        mEditor.commit();
+    }
+
+    public String getEmail(){
+        return mSharedPreferences.getString("KEY_EMAIL","" );
+    }
 }

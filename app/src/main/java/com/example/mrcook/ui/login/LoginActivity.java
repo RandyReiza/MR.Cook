@@ -1,33 +1,25 @@
 package com.example.mrcook.ui.login;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mrcook.R;
+import com.example.mrcook.helper.Helper;
 import com.example.mrcook.helper.ViewModelFactory;
-import com.example.mrcook.repository.LoginRepository;
 import com.example.mrcook.session.SessionManagerUtil;
 import com.example.mrcook.ui.MainActivity;
-import com.example.mrcook.ui.splashscreen.SplashScreenActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText inputUsername;
     private EditText inputPassword;
     private Button btnSignIn;
     private LoginViewModel viewModel;
-    private LoginRepository loginRepository;
     String username;
     String password;
     SessionManagerUtil sessionManagerUtil;
@@ -38,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         sessionManagerUtil = new SessionManagerUtil(getApplicationContext());
         //Check Session Login is True
-        if(sessionManagerUtil.getlogin() == true){
+        if (sessionManagerUtil.getLogin() && (!sessionManagerUtil.getToken().isEmpty() || sessionManagerUtil.getToken() != null)){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
@@ -47,16 +39,25 @@ public class LoginActivity extends AppCompatActivity {
         inputUsername = findViewById(R.id.inputUsername);
         inputPassword = findViewById(R.id.inputPassword);
 
-        loginRepository = new LoginRepository(getApplication());
         viewModel = obtainViewModel(LoginActivity.this);
         viewModel.user.observe(this, it -> {
-            //Menyimpan session user pada sharedPreference
+            if (!sessionManagerUtil.getToken().isEmpty() || sessionManagerUtil.getToken() != null) {
+                sessionManagerUtil.setLogin(true);
+                sessionManagerUtil.setToken(it.getToken());
+                sessionManagerUtil.setUsername(it.getUsername());
+                sessionManagerUtil.setFullName(it.getFullName());
+                sessionManagerUtil.setEmail(it.getEmail());
 
-            sessionManagerUtil.setLogin(true);
-            //Menyimpan token pada session
-            sessionManagerUtil.setToken(it.getToken());
-            //Menyimpan username in session
-            sessionManagerUtil.setUsername(it.getUsername());
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
+            }
+        });
+        viewModel.isLoggedIn.observe(this, it -> {
+            if (it) {
+                Helper.showToast(getApplicationContext(), "Login Success");
+            } else {
+                Helper.showToast(getApplicationContext(), "Username or Password do not match.");
+            }
         });
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -65,19 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                 username = inputUsername.getText().toString();
                 password = inputPassword.getText().toString();
                 viewModel.userLogin(username, password);
-                if (viewModel.status == true) {
-                    Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_LONG).show();
-
-                    //For
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    finish();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Login Failed", Toast.LENGTH_LONG).show();
-                }
             }
-
         });
-
     }
 
     private LoginViewModel obtainViewModel(AppCompatActivity activity){
