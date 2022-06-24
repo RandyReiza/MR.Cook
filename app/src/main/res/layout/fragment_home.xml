@@ -35,16 +35,29 @@
         android:visibility="gone" />
 
     <ImageButton
-        android:id="@+id/buttonFavoriteUsers"
+        android:id="@+id/buttonProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="?android:selectableItemBackground"
+        android:contentDescription="@string/profile"
+        android:src="@drawable/ic_baseline_person_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/colorControlNormal" />
+
+    <ImageButton
+        android:id="@+id/buttonFavoriteUsers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:background="?android:selectableItemBackground"
         android:contentDescription="@string/favorite_food"
         android:src="@drawable/ic_baseline_favorite_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonProfile"
+        app:layout_constraintEnd_toStartOf="@+id/buttonProfile"
+        app:layout_constraintTop_toTopOf="@+id/buttonProfile"
         app:tint="?attr/colorControlNormal" />
 
     <ImageView
