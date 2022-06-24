@@ -15,4 +15,5 @@
     <string name="favorite_food">Favorite Food</string>
     <string name="favorite_recipe">Favorite Recipe</string>
     <string name="search_favorite_recipe">Search Favorite Recipe</string>
+    <string name="profile">Profile</string>
 </resources>
