@@ -59,4 +59,13 @@ public class SessionManagerUtil {
     public String getEmail(){
         return mSharedPreferences.getString("KEY_EMAIL","" );
     }
+
+    public long getSessionExpiredTime(){
+        return mSharedPreferences.getLong("KEY_SESSION_EXPIRED_TIME",0);
+    }
+
+    public void setSessionExpiredTime(long sessionExpiredTime){
+        mEditor.putLong("KEY_SESSION_EXPIRED_TIME", sessionExpiredTime);
+        mEditor.commit();
+    }
 }
